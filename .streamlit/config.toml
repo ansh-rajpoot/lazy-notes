@@ -1,0 +1,19 @@
+# Calm paper palette. Usage stats stay off so the app does not phone home.
+[theme]
+base = "light"
+primaryColor = "#2F6F5E"
+backgroundColor = "#F4F1EA"
+secondaryBackgroundColor = "#E7E1D6"
+textColor = "#1C2430"
+font = "sans serif"
+
+[browser]
+gatherUsageStats = false
+
+[server]
+port = 47231
+headless = true
+maxUploadSize = 5
+
+[client]
+toolbarMode = "minimal"

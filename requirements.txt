@@ -1,0 +1,3 @@
+# The web UI is the only third-party dependency.
+# Ollama itself is a separate local program. See the README.
+streamlit==1.66.1
