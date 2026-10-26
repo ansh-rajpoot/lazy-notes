@@ -191,6 +191,18 @@ class GroundingTest(unittest.TestCase):
         self.assertEqual(summary.takeaways, ["Ship the fix.", "Leave export for later."])
         self.assertEqual(summary.recap, "One sentence only.")
 
+    def test_placeholder_recap_is_rejected(self):
+        with self.assertRaises(OllamaError) as caught:
+            self._summary(
+                {
+                    "summary": "The save handler needs a patch.",
+                    "takeaways": ["The save handler has a bug."],
+                    "action_items": [],
+                    "recap": "First line.\nSecond line.",
+                }
+            )
+        self.assertEqual(caught.exception.code, "invalid_response")
+
     def test_missing_summary_is_rejected(self):
         with self.assertRaises(OllamaError) as caught:
             self._summary({"summary": "  ", "recap": "Line one.\nLine two."})
